@@ -1,21 +1,80 @@
-MIT License
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Dining Scene - A-Frame</title>
+    <meta name="description" content="A-Frame Dining Table Scene">
+    <!-- A-Frame library for 3D web experiences -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <!-- The Scene -->
+    <a-scene background="color: #ECECEC">
+      
+      <!-- Camera & Controls: Positioned back slightly to view the full table -->
+      <a-entity position="0 1.6 4">
+        <a-camera look-controls wasd-controls></a-camera>
+      </a-entity>
 
-Copyright (c) 2026 Sandra-Blay
+      <!-- Floor: A large plane rotated to lie flat -->
+      <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#7BC8A4" roughness="1"></a-plane>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+      <!-- Lights: Ambient for general visibility, directional for shadows/depth -->
+      <a-light type="ambient" color="#BBB"></a-light>
+      <a-light type="directional" color="#FFF" intensity="0.6" position="-1 1 1"></a-light>
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+      <!-- DINING TABLE GROUP -->
+      <a-entity id="table" position="0 0 0">
+        <!-- Table Top -->
+        <a-box position="0 0.75 0" width="2" height="0.1" depth="1.2" color="#4B2C20"></a-box>
+        <!-- Table Legs (Four corners) -->
+        <a-box position="-0.9 0.375 -0.5" width="0.1" height="0.75" depth="0.1" color="#3B1F15"></a-box>
+        <a-box position="0.9 0.375 -0.5" width="0.1" height="0.75" depth="0.1" color="#3B1F15"></a-box>
+        <a-box position="-0.9 0.375 0.5" width="0.1" height="0.75" depth="0.1" color="#3B1F15"></a-box>
+        <a-box position="0.9 0.375 0.5" width="0.1" height="0.75" depth="0.1" color="#3B1F15"></a-box>
+      </a-entity>
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+      <!-- CHAIR 1 (Left Side) -->
+      <a-entity id="chair1" position="-1.2 0 0" rotation="0 90 0">
+        <a-box position="0 0.45 0" width="0.5" height="0.05" depth="0.5" color="#5D4037"></a-box> <!-- Seat -->
+        <a-box position="0 0.85 -0.22" width="0.5" height="0.8" depth="0.05" color="#5D4037"></a-box> <!-- Backrest -->
+        <!-- Chair Legs -->
+        <a-box position="-0.2 0.225 -0.2" width="0.05" height="0.45" depth="0.05" color="#3B1F15"></a-box>
+        <a-box position="0.2 0.225 -0.2" width="0.05" height="0.45" depth="0.05" color="#3B1F15"></a-box>
+        <a-box position="-0.2 0.225 0.2" width="0.05" height="0.45" depth="0.05" color="#3B1F15"></a-box>
+        <a-box position="0.2 0.225 0.2" width="0.05" height="0.45" depth="0.05" color="#3B1F15"></a-box>
+      </a-entity>
+
+      <!-- CHAIR 2 (Right Side) -->
+      <a-entity id="chair2" position="1.2 0 0" rotation="0 -90 0">
+        <a-box position="0 0.45 0" width="0.5" height="0.05" depth="0.5" color="#5D4037"></a-box> <!-- Seat -->
+        <a-box position="0 0.85 -0.22" width="0.5" height="0.8" depth="0.05" color="#5D4037"></a-box> <!-- Backrest -->
+        <!-- Chair Legs -->
+        <a-box position="-0.2 0.225 -0.2" width="0.05" height="0.45" depth="0.05" color="#3B1F15"></a-box>
+        <a-box position="0.2 0.225 -0.2" width="0.05" height="0.45" depth="0.05" color="#3B1F15"></a-box>
+        <a-box position="-0.2 0.225 0.2" width="0.05" height="0.45" depth="0.05" color="#3B1F15"></a-box>
+        <a-box position="0.2 0.225 0.2" width="0.05" height="0.45" depth="0.05" color="#3B1F15"></a-box>
+      </a-entity>
+
+      <!-- TABLE TOP ITEMS -->
+      
+      <!-- Cup 1 (Left) -->
+      <a-cylinder position="-0.4 0.88 0" radius="0.06" height="0.15" color="#FFFFFF"></a-cylinder>
+      
+      <!-- Cup 2 (Right) -->
+      <a-cylinder position="0.4 0.88 0" radius="0.06" height="0.15" color="#FFFFFF"></a-cylinder>
+
+      <!-- Milo Tin (Center) -->
+      <a-entity position="0 0.8 0">
+        <!-- Main Green Cylinder -->
+        <a-cylinder position="0 0.15 0" radius="0.12" height="0.3" color="#006a31"></a-cylinder>
+        <!-- Yellow Graphic Stripe -->
+        <a-cylinder position="0 0.15 0" radius="0.121" height="0.1" color="#ffed00"></a-cylinder>
+        <!-- Metal Lid -->
+        <a-cylinder position="0 0.31 0" radius="0.12" height="0.02" color="#C0C0C0"></a-cylinder>
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>
